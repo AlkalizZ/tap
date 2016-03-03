@@ -2,47 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <style>
-        #demo {
-            width: 200px;
-            height: 100px;
-            background-color: burlywood;
-            text-align: center;
-            line-height: 50px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/flexible.css"/>
+    <link rel="stylesheet" href="styles/main.css"/>
+    <script src="scripts/flexible.js"></script>
 </head>
 <body>
     <div id="demo">tap 事件</div>
-<script>
-    window.onload = function(){
-        var demo = document.getElementById("demo");
-        var tap = document.createEvent('HTMLEvents');
-        var body = document.getElementsByTagName("body")[0];
-        var event = "tap 事件";
-        tap.initEvent("tap", true, true);//事件名称，是否可以冒泡，是否阻止事件的默认操作
-        body.addEventListener("touchstart", function(e){
-            e.preventDefault();
-            event = "touchstart";
-            demo.dispatchEvent(tap);
-        }, false);
-        body.addEventListener("touchmove", function(e){
-            e.preventDefault();
-            event = "touchmove";
-            demo.dispatchEvent(tap);
-        }, false);
-        body.addEventListener("touchend", function(){
-            event = "touchend";
-            demo.dispatchEvent(tap);
-        }, false);
-        demo.addEventListener("tap", function(){
-//            demo.ontap();
-            demo.innerHTML = event;
-        }, false);
-//        demo.ontap = function(){
-//            demo.innerHTML = event;
-//        }
-    }
-</script>
+<script src="scripts/index.js"></script>
 </body>
 </html>

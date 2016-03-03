@@ -1,0 +1,32 @@
+$browser-default-font-size: 75px !default;
+html {
+  font-size: $browser-default-font-size;
+}
+@function strip-units($number){
+  @return $number / ($number * 0 + 1);
+}
+@mixin px2rem($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-units(nth($values, $i));
+    $browser-default-font-size: strip-units($browser-default-font-size);
+    $pxValues: #{$pxValues + $value / $browser-default-font-size}rem;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  }
+
+  #{$property}: $pxValues;
+}
+
+#demo {
+  width: 100%;
+  @include px2rem(height, 400);
+  @include px2rem(line-height, 400);
+  background-color: burlywood;
+  text-align: center;
+  font-size: 50px;
+}
