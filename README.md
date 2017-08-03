@@ -1,6 +1,6 @@
 # 自定义tap事件
 
-若想看代码demo请戳[这里](http://www.alkalixin.cn/tap)(请于移动端上测试)
+若想看代码demo请戳[这里](https://demo.alkalixin.cn/tap/)(请于移动端上测试)
 
 ### px2rem的使用：
 根据设计稿的不同更改html的font-size
